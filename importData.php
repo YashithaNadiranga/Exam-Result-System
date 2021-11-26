@@ -22,16 +22,17 @@ if(isset($_POST['importSubmit'])){
             // Parse data from CSV file line by line
             while(($line = fgetcsv($csvFile)) !== FALSE){
                 // Get row data
-                $name   = $line[0];
-                $date  = $line[1];
-                $result  = $line[2];
-                $status = $line[3];
-                $grade = $line[4];
-                $sname = $line[5];
+                $sid   = $line[0];
+                $sname  = $line[1];
+                $ename  = $line[2];
+                $edate = $line[3];
+                $results = $line[4];
+                $status = $line[5];
+                $grade = $line[6];
 
                 
                 // Insert member data in the database
-                $db->query("INSERT INTO exam (name, date, result, status, grade, sname) VALUES ('".$name."', '".$date."', '".$result."', '".$status."', '".$grade."', '".$sname."')");
+                $db->query("INSERT INTO examrs (sid, sname, ename, edate, results, status,grade) VALUES ('".$sid."', '".$sname."', '".$ename."', '".$edate."', '".$results."', '".$status."', '".$grade."')");
                 
             }
             
